@@ -1,24 +1,99 @@
+// 05. Middle of the Linked List
+function ListNode(val, next) {
+    this.val = (val === undefined ? 0 : val);
+    this.next = (next === undefined ? null : next);
+}
+var middleNode = function(head) {
+    let slow = head;
+    let fast = head;
 
-// 04. Reverse Linked List
-
-var reverseList = function(head) {
-
-    let prev = null;
-    let current = head;
-
-    while (current !== null) {
-
-        let next = current.next;
-
-        current.next = prev;
-
-        prev = current;
-        current = next;
-
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
 
+    return slow;
+};
+
+function createLinkedList(arr) {
+    if (arr.length === 0) return null;
+    let head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+function linkedListToArray(head) {
+    let result = [];
+    let current = head;
+    while (current !== null) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
+}
+
+
+let inputArr = [1, 2, 3, 4, 5];
+let head = createLinkedList(inputArr);
+
+let resultNode = middleNode(head);
+// console.log("Output:", linkedListToArray(resultNode)); 
+
+
+
+
+
+
+
+// 04. Reverse Linked List
+var reverseList = function(head) {
+    let prev = null;
+    let current = head;
+    
+    while (current !== null) {
+        let nextTemp = current.next;
+        current.next = prev;
+        prev = current;
+        current = nextTemp;
+    }
+    
     return prev;
 };
+
+
+function ListNode(val, next) {
+    this.val = (val===undefined ? 0 : val);
+    this.next = (next===undefined ? null : next);
+}
+
+function createLinkedList(arr) {
+    let head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
+
+function linkedListToArray(head) {
+    let result = [];
+    let current = head;
+    while (current !== null) {
+        result.push(current.val);
+        current = current.next;
+    }
+    return result;
+}
+
+let testList = createLinkedList([1, 2, 3, 4, 5]);
+let reversedHead = reverseList(testList);
+// console.log(linkedListToArray(reversedHead)); 
+
 
 
 
