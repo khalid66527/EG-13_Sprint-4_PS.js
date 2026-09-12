@@ -1,4 +1,31 @@
 
+// 04. Reverse Linked List
+
+var reverseList = function(head) {
+
+    let prev = null;
+    let current = head;
+
+    while (current !== null) {
+
+        let next = current.next;
+
+        current.next = prev;
+
+        prev = current;
+        current = next;
+
+    }
+
+    return prev;
+};
+
+
+
+
+
+
+
 // 03. Find the Difference
 
 var findTheDifference = function(s, t) {
