@@ -1,4 +1,33 @@
 
+// 07. Remove Nth Node From End of List
+
+var removeNthFromEnd = function(head, n) {
+
+    let dummy = { val: 0, next: head };
+    let fast = dummy;
+    let slow = dummy;
+
+    for (let i = 0; i < n; i++) {
+        fast = fast.next;
+    }
+
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    slow.next = slow.next.next;
+
+    return dummy.next;
+};
+
+let list = createLinkedList([1, 2, 3, 4, 5]);
+
+let result = removeNthFromEnd(list, 2);
+
+// console.log(linkedListToArray(result));
+
+
 
 
 // 06. Product of Array Except Self
@@ -22,7 +51,7 @@ var productExceptSelf = function(nums) {
     return result;
 };
 
-console.log(productExceptSelf([1, 2, 3, 4]));
+
 
 
 
