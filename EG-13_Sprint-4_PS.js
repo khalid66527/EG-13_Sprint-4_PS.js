@@ -1,3 +1,23 @@
+// 09. Permutation in String
+
+var checkInclusion = function(s1, s2) {
+
+    for (let i = 0; i <= s2.length - s1.length; i++) {
+
+        let part = s2.slice(i, i + s1.length);
+
+        if (part.split("").sort().join("") === s1.split("").sort().join("")) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
+
+
+
+
 
 // 08. Find First and Last Position of Element in Sorted Array
 
