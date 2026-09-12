@@ -1,4 +1,29 @@
 
+// 03. Find the Difference
+
+var findTheDifference = function(s, t) {
+
+    let map = {};
+
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+
+    for (let char of t) {
+
+        if (!map[char]) {
+            return char;
+        }
+
+        map[char]--;
+
+    }
+
+};
+
+
+
+
 
 // 02. Word Pattern
 
