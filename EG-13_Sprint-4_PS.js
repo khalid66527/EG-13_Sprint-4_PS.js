@@ -1,3 +1,27 @@
+// 10. Find All Anagrams in a String
+
+var findAnagrams = function(s, p) {
+
+    let result = [];
+    let target = p.split("").sort().join("");
+
+    for (let i = 0; i <= s.length - p.length; i++) {
+
+        let part = s.slice(i, i + p.length);
+
+        if (part.split("").sort().join("") === target) {
+            result.push(i);
+        }
+    }
+
+    return result;
+};
+
+
+
+
+
+
 // 09. Permutation in String
 
 var checkInclusion = function(s1, s2) {
